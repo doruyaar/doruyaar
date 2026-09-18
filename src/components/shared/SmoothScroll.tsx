@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 import Lenis from "lenis";
 import { gsap, ScrollTrigger } from "@/lib/gsap";
+import { setLenis } from "@/lib/lenis";
 
 /**
  * Lenis smooth scroll wired into GSAP's ticker so ScrollTrigger and the
@@ -21,6 +22,7 @@ export default function SmoothScroll() {
       respectReducedMotion: true,
     });
     lenis.current = instance;
+    setLenis(instance);
 
     instance.on("scroll", ScrollTrigger.update);
 
@@ -32,6 +34,7 @@ export default function SmoothScroll() {
       gsap.ticker.remove(tick);
       instance.destroy();
       lenis.current = null;
+      setLenis(null);
     };
   }, []);
 

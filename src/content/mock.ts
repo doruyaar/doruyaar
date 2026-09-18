@@ -1,7 +1,6 @@
 /**
  * Site content. Profile, experience and skills are taken from the CV.
- * `sideProjects` are placeholders — see the comment on that array for how
- * to add real projects and screenshots.
+ * See the comment on `sideProjects` for how to add projects and screenshots.
  *
  * Every concept renders from this one file so the copy stays identical
  * while you compare designs.
@@ -152,7 +151,7 @@ export type SideProject = {
 
 /**
  * Personal / open-source projects (GitHub, articles, experiments).
- * The `sp*` entries are still placeholders. To add a screenshot:
+ * To add a screenshot:
  *   1. copy it to `public/projects/my-project.png`
  *   2. set `image: "/projects/my-project.png"` on the entry
  */
@@ -174,17 +173,39 @@ export const sideProjects: SideProject[] = [
       "An AI-based competitive intelligence platform. It tracks competitors, turns their product, pricing and security changes into insights, compares them side by side and ranks everything by impact automatically — with every claim traced back to its source.",
     image: "/projects/openinsight.png",
     links: [{ label: "GitHub", href: "https://github.com/doruyaar/OpenInsight" }],
-    tags: ["AI Agents", "LLMs", "TypeScript", "React"],
+    tags: ["AI Agents", "LLMs", "RAG", "Context Engineering", "Prompt Engineering"],
     year: "2026",
   },
   {
-    id: "sp3",
-    title: "Writing on Medium",
+    id: "book-agent-skills",
+    title: "Agent Skills from Books",
     description:
-      "Notes on data engineering, Databricks and building AI agents that survive contact with real data. Placeholder text — link your best articles.",
-    links: [{ label: "Medium", href: "https://medium.com/@dor.yar" }],
-    tags: ["Writing", "Data", "AI"],
-    year: "2024 –",
+      "One agent skill per engineering book I've read — each distilling the book's rules and methodology into a single SKILL.md, so I can call a book into my agent while developing. Covers AI engineering and RAG, data-intensive systems, refactoring, pragmatic engineering and UX. Works in Cursor, Claude Code and anything else that speaks the open Agent Skills format.",
+    image: "/projects/agent-skills-books.jpg",
+    links: [
+      {
+        label: "GitHub",
+        href: "https://github.com/doruyaar/agent-skills-based-on-books-I-have-read",
+      },
+    ],
+    tags: ["Agent Skills", "LLMs", "Context Engineering", "Cursor", "Claude Code"],
+    year: "2026",
+  },
+  {
+    id: "spark-python-article",
+    title: "Should We Stop Using Python for Spark Jobs?",
+    description:
+      "An article I wrote after benchmarking PySpark against Scala: identical performance on the native DataFrame and SQL APIs, but up to 10× faster in Scala once heavy UDFs enter the picture — and the rewrite that finally stopped a streaming job from running its driver out of memory.",
+    image: "/projects/spark-python-article.jpg",
+    links: [
+      {
+        label: "Medium",
+        href: "https://medium.com/@dor.yar/should-we-stop-using-python-for-spark-jobs-e4886dff8923",
+      },
+      { label: "All writing", href: "https://medium.com/@dor.yar" },
+    ],
+    tags: ["Writing", "Apache Spark", "PySpark", "Scala", "Benchmarking"],
+    year: "2024",
   },
 ];
 
