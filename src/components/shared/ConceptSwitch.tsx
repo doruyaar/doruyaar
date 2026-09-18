@@ -15,6 +15,8 @@ const concepts = [
 
 export default function ConceptSwitch() {
   const pathname = usePathname();
+  // `/` renders concept 01, so it should light up the same tab as `/pipeline`.
+  const current = pathname === "/" ? "/pipeline" : pathname;
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-5 z-50 flex justify-center px-4">
@@ -25,7 +27,7 @@ export default function ConceptSwitch() {
       >
         <span className="eyebrow hidden pl-3 pr-2 sm:inline">Concept</span>
         {concepts.map((c) => {
-          const active = pathname?.startsWith(c.href);
+          const active = current?.startsWith(c.href);
           return (
             <Link
               key={c.href}
