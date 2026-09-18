@@ -9,9 +9,9 @@ import ParticleStory from "@/components/particles/ParticleStory";
 export const metadata: Metadata = { title: "Concept 02 · Particles" };
 
 /**
- * Concept 02 — “Particles → Structure”.
+ * Concept 02 - “Particles → Structure”.
  * Dark, monochrome. One particle system forms the name, dissolves into
- * noise, then snaps into storage, a network, a 3D graph — and finally you.
+ * noise, then snaps into storage, a network, a 3D graph - and finally you.
  */
 export default function ParticlesPage() {
   return (

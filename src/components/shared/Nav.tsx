@@ -5,6 +5,12 @@ import { profile } from "@/content/mock";
 export default function Nav() {
   return (
     <header className="fixed inset-x-0 top-0 z-40 mix-blend-difference">
+      <a
+        href="#work"
+        className="sr-only focus:not-sr-only focus:absolute focus:left-6 focus:top-4 focus:z-50 focus:rounded-full focus:bg-white focus:px-4 focus:py-2 focus:font-mono focus:text-xs focus:tracking-widest focus:text-black"
+      >
+        Skip to content
+      </a>
       <nav className="mx-auto flex max-w-[1600px] items-center justify-between px-6 py-5 text-white md:px-10">
         <a href="#top" className="font-mono text-xs tracking-widest">
           {profile.name.toUpperCase()}

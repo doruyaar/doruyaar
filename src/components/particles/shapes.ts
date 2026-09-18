@@ -95,7 +95,7 @@ export function cloudShape(count = COUNT): Float32Array {
   return out;
 }
 
-/** Sparse ambient: very wide, very calm — the backdrop for text sections. */
+/** Sparse ambient: very wide, very calm - the backdrop for text sections. */
 export function ambientShape(count = COUNT): Float32Array {
   const r = rng(29);
   const out = new Float32Array(count * 3);
@@ -107,7 +107,7 @@ export function ambientShape(count = COUNT): Float32Array {
   return out;
 }
 
-/** A grid of database cylinders — structure, storage, order. */
+/** A grid of database cylinders - structure, storage, order. */
 export function warehouseShape(count = COUNT): Float32Array {
   const r = rng(37);
   const pts: number[] = [];
@@ -218,7 +218,7 @@ export function graphShape(count = COUNT): Float32Array {
   const floorY = -2.0;
   const f = (x: number, z: number) => A * (x * x - z * z);
 
-  // Surface iso-lines (both directions) — the wireframe of the plot.
+  // Surface iso-lines (both directions) - the wireframe of the plot.
   const lines = 19;
   const perLine = Math.floor((count * 0.5) / (lines * 2));
   for (let l = 0; l < lines; l++) {

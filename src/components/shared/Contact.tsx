@@ -33,7 +33,7 @@ export default function Contact() {
       className="relative mx-auto flex min-h-[90vh] max-w-[1600px] flex-col justify-between px-6 pb-28 pt-32 md:px-10 md:pt-44"
     >
       <div>
-        <p className="eyebrow reveal mb-8">Contact · {profile.location}</p>
+        <p className="eyebrow reveal mb-8">Contact</p>
         <h2 className="display reveal text-[clamp(2.8rem,9vw,9.5rem)]">
           Let&apos;s build
           <br />
@@ -56,30 +56,15 @@ export default function Contact() {
             </svg>
           </span>
         </h2>
-        <div className="reveal mt-14 flex flex-wrap items-center gap-4">
+        <p className="reveal mt-14 text-lg text-muted md:text-xl">
+          Send me a mail to{" "}
           <a
             href={`mailto:${profile.email}`}
-            className="inline-flex items-center gap-4 rounded-full border border-line px-7 py-4 text-lg transition-colors duration-300 hover:border-accent hover:bg-accent hover:text-accent-ink"
+            className="text-fg underline decoration-line decoration-1 underline-offset-[6px] transition-colors duration-300 hover:text-accent hover:decoration-accent"
           >
             {profile.email}
-            <span aria-hidden className="text-2xl leading-none">
-              →
-            </span>
           </a>
-          {profile.socials
-            .filter((s) => s.label === "LinkedIn")
-            .map((s) => (
-              <a
-                key={s.label}
-                href={s.href}
-                target="_blank"
-                rel="noreferrer"
-                className="font-mono text-sm tracking-widest text-muted transition-colors hover:text-fg"
-              >
-                {s.label.toUpperCase()} ↗
-              </a>
-            ))}
-        </div>
+        </p>
       </div>
 
       <footer className="mt-28 flex flex-col gap-6 border-t border-line pt-8 font-mono text-xs tracking-widest text-muted md:flex-row md:items-center md:justify-between">

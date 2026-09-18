@@ -20,12 +20,12 @@ export default function Work() {
           Experience
         </h2>
         <p className="eyebrow reveal pb-3">
-          {experience[experience.length - 1].period.split(" ")[0]} — today
+          {experience[experience.length - 1].period.split(" ")[0]} - today
         </p>
       </div>
 
       <ol>
-        {experience.map((e, i) => (
+        {experience.map((e) => (
           <li
             key={e.id}
             className="reveal group grid gap-4 border-t border-line py-10 md:grid-cols-12 md:gap-8 md:py-14"
@@ -56,7 +56,6 @@ export default function Work() {
                 ))}
               </ul>
             </div>
-            <span className="sr-only">{i + 1}</span>
           </li>
         ))}
       </ol>

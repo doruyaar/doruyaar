@@ -26,7 +26,6 @@ export default function About() {
             {profile.intro}
           </p>
           <p className="reveal mt-6 font-mono text-xs tracking-widest text-muted/70">
-            {profile.location.toUpperCase()} ·{" "}
             {profile.languages.map((l) => `${l.label.toUpperCase()} ${l.level.toUpperCase()}`).join(" · ")}
           </p>
         </div>

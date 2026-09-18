@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: `${profile.name} — ${profile.role}`,
+  title: `${profile.name} - ${profile.role}`,
   description: profile.tagline,
 };
 

@@ -10,7 +10,7 @@ import PipelineStage from "@/components/pipeline/PipelineStage";
 export const metadata: Metadata = { title: "Concept 01 · Pipeline" };
 
 /**
- * Concept 01 — “The Pipeline”.
+ * Concept 01 - “The Pipeline”.
  * Light, paper-like canvas. One line runs through the whole story:
  * chaos → structure → learning → a single clean signal.
  */

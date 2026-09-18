@@ -1,5 +1,5 @@
 /**
- * Pure drawing code for Concept 03 — “Noise → Music”.
+ * Pure drawing code for Concept 03 - “Noise → Music”.
  *
  * One waveform runs across the screen. Scroll morphs it from a calm hero
  * line, into raw noise, into a quantised step sequence (rhythm), into
@@ -8,7 +8,7 @@
  * Underneath, a staff fades in and scattered notes snap onto it, group
  * into chords, and finally settle into an engraved piano score: brace,
  * treble + bass clef, time signature, tempo, dynamics, tilted noteheads,
- * slanted beams, ledger lines, accidentals, a slur and a hairpin — with a
+ * slanted beams, ledger lines, accidentals, a slur and a hairpin - with a
  * playhead sweeping across and an “orchestra” spectrum breathing below.
  *
  * The waveform is always drawn in `pal.wave` (a quiet background tint) so
@@ -21,7 +21,7 @@ export type Palette = {
   /** Highlight: playhead, active notes, coda wave. */
   accent: string;
   muted: string;
-  /** The ever-present waveform — a background layer, quieter than ink. */
+  /** The ever-present waveform - a background layer, quieter than ink. */
   wave: string;
   /** CSS font-family stack that contains music glyphs (clefs, rests, accidentals). */
   musicFont: string;
@@ -63,7 +63,7 @@ const parseColor = (c: string): [number, number, number] | null => {
     const n = parseInt(h, 16);
     return [(n >> 16) & 255, (n >> 8) & 255, n & 255];
   }
-  // Blends feed their own output back in while a theme is cross-fading.
+  // `mixColor` emits `rgb(...)`, so its own output can be blended again.
   const rgb = /^rgb\(\s*(\d+)\s*,\s*(\d+)\s*,\s*(\d+)\s*\)$/i.exec(s);
   if (rgb) return [+rgb[1], +rgb[2], +rgb[3]];
   return null;
@@ -90,31 +90,31 @@ const weight = (shape: number, k: number) => Math.max(0, 1 - Math.abs(shape - k)
 // Waveform per stage (u in 0..1 along x, returns amplitude in units of H)
 
 const waves: ((u: number, t: number) => number)[] = [
-  // 0 hero — calm, breathing, tucked above the headline
+  // 0 hero - calm, breathing, tucked above the headline
   (u, t) => 0.028 * Math.sin(TAU * (u * 2 - t * 0.12)) + 0.008 * Math.sin(TAU * (u * 7 + t * 0.3)),
-  // 1 noise — raw, jittery
+  // 1 noise - raw, jittery
   (u, t) =>
     0.2 *
     ((vnoise(u * 38 + t * 2.4) * 2 - 1) * 0.55 +
       Math.sin(u * 95 + t * 8.5) * 0.22 +
       (vnoise(u * 150 - t * 3.6) * 2 - 1) * 0.35),
-  // 2 rhythm — quantised step sequencer
+  // 2 rhythm - quantised step sequencer
   (u, t) => {
     const k = Math.floor(u * 16);
     const beat = Math.floor(t * 2);
     return 0.15 * (hash(k * 7.31 + beat * 13.7) * 2 - 1);
   },
-  // 3 harmony — stacked harmonics
+  // 3 harmony - stacked harmonics
   (u, t) =>
     0.15 *
     (Math.sin(TAU * (u * 3 + t * 0.2)) * 0.55 +
       Math.sin(TAU * (u * 6 + t * 0.32)) * 0.3 +
       Math.sin(TAU * (u * 12 - t * 0.26)) * 0.15),
-  // 4 performance — the sound under the score: small, clean, on the beat
+  // 4 performance - the sound under the score: small, clean, on the beat
   (u, t) => 0.035 * Math.sin(TAU * (u * 5 - t * 0.5)) * (0.7 + 0.3 * Math.max(0, Math.sin(t * 4))),
-  // 5 ambient — a hair line
+  // 5 ambient - a hair line
   (u, t) => 0.018 * Math.sin(TAU * (u * 2 - t * 0.12)),
-  // 6 coda — one slow accent wave
+  // 6 coda - one slow accent wave
   (u, t) => 0.055 * Math.sin(TAU * (u * 1.5 - t * 0.2)),
 ];
 
@@ -493,7 +493,7 @@ export function drawScene(
     // brace
     brace(ctx, sx0 - sp * 0.85, top, bottom, sp);
 
-    // clefs — anchored like real engraving: the treble curl on the G line,
+    // clefs - anchored like real engraving: the treble curl on the G line,
     // the bass clef's head on the F line.
     ctx.globalAlpha = staffA * 0.95 * sheetIn;
     glyph(ctx, GLYPH.gClef, font, sx0 + sp * 0.55, stepY(-2) + sp * 2.63, sp * 7.0);

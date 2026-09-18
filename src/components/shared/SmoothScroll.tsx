@@ -40,7 +40,7 @@ export default function SmoothScroll() {
 
   // Every concept shares this layout, so Lenis survives the route change
   // holding the old scroll position: land each one at the top of its story.
-  // A reload is left alone — the browser restores that itself.
+  // A reload is left alone - the browser restores that itself.
   const previous = useRef(pathname);
   useEffect(() => {
     if (previous.current === pathname) return;

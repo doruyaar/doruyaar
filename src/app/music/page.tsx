@@ -17,10 +17,9 @@ const notoMusic = Noto_Music({
 });
 
 /**
- * Concept 03 — “Noise → Music”.
+ * Concept 03 - “Noise → Music”.
  * One waveform is tuned from static into rhythm, harmony and finally a
- * melody as you scroll. Ships in two keys — a deep navy studio and the
- * /pipeline paper palette — swapped by the switch under the nav.
+ * melody as you scroll, engraved on the /pipeline paper palette.
  */
 export default function MusicPage() {
   return (

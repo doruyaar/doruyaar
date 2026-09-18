@@ -67,15 +67,9 @@ export default function PipelineHero() {
           ))}
         </h1>
 
-        <div className="mt-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <p className="hero-meta max-w-md text-lg leading-relaxed text-muted md:text-xl">
-            {profile.tagline}
-          </p>
-          <p className="hero-meta eyebrow flex items-center gap-3">
-            <span className="inline-block h-6 w-px animate-pulse bg-fg" />
-            Scroll to follow the data
-          </p>
-        </div>
+        <p className="hero-meta mt-12 max-w-md text-lg leading-relaxed text-muted md:text-xl">
+          {profile.tagline}
+        </p>
       </div>
     </section>
   );

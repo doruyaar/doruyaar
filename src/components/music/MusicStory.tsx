@@ -6,7 +6,6 @@ import { gsap, useGSAP } from "@/lib/gsap";
 import { useStageProgress } from "@/components/shared/useStageProgress";
 import MusicCanvas from "./MusicCanvas";
 import { musicState } from "./state";
-import type { MusicTheme } from "./themes";
 
 /** Musical reading of each beat, shown as the stage eyebrow. */
 const MOVEMENTS = ["noise", "rhythm", "harmony", "performance"];
@@ -14,15 +13,13 @@ const MOVEMENTS = ["noise", "rhythm", "harmony", "performance"];
 type Props = {
   /** Font-family stack (from next/font) that contains the music glyphs. */
   musicFont: string;
-  /** Active palette; the canvas cross-fades between the two. */
-  theme: MusicTheme;
 };
 
 /**
- * Concept 03 — “Noise → Music”.
+ * Concept 03 - “Noise → Music”.
  * A single waveform is tuned from static into a melody as you scroll.
  */
-export default function MusicStory({ musicFont, theme }: Props) {
+export default function MusicStory({ musicFont }: Props) {
   const ref = useRef<HTMLDivElement>(null);
 
   useGSAP(
@@ -73,8 +70,8 @@ export default function MusicStory({ musicFont, theme }: Props) {
 
   return (
     <div ref={ref} className="relative">
-      {/* Both palettes live in themes.ts, next to the page tokens they match. */}
-      <MusicCanvas theme={theme} musicFont={musicFont} />
+      {/* The canvas ink lives in themes.ts, next to the page tokens it matches. */}
+      <MusicCanvas musicFont={musicFont} />
 
       {/* Hero */}
       <section
@@ -90,15 +87,9 @@ export default function MusicStory({ musicFont, theme }: Props) {
               </span>
             ))}
           </h1>
-          <div className="mt-12 flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-            <p className="hero-meta max-w-md text-lg leading-relaxed text-muted md:text-xl">
-              {profile.tagline}
-            </p>
-            <p className="hero-meta eyebrow flex items-center gap-3">
-              <span className="inline-block h-6 w-px animate-pulse bg-fg" />
-              Scroll — tune the noise
-            </p>
-          </div>
+          <p className="hero-meta mt-12 max-w-md text-lg leading-relaxed text-muted md:text-xl">
+            {profile.tagline}
+          </p>
         </div>
       </section>
 

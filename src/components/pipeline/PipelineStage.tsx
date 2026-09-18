@@ -73,19 +73,19 @@ export default function PipelineStage() {
         }
       };
 
-      // 01 · Ingest — noisy strands draw in
+      // 01 · Ingest - noisy strands draw in
       tl.to(".strand", { strokeDashoffset: 0, duration: 0.85, stagger: 0.012 }, 0.02);
       tl.to(".label-ingest", { opacity: 1, y: 0, duration: 0.1 }, 0.55);
       caption(0, 0);
 
-      // 02 · Transform — node lands, strands quiet down, clean lanes emerge
+      // 02 · Transform - node lands, strands quiet down, clean lanes emerge
       tl.to(".node", { scale: 1, duration: 0.25, ease: "back.out(1.6)" }, 1.0);
       tl.to(".strand", { opacity: 0.28, duration: 0.3 }, 1.0);
       tl.to(".lane", { strokeDashoffset: 0, duration: 0.5, stagger: 0.04 }, 1.25);
       tl.to(".label-transform", { opacity: 1, y: 0, duration: 0.1 }, 1.2);
       caption(1, 1);
 
-      // 03 · Model — neurons pop, edges wire up, a pulse fires through
+      // 03 · Model - neurons pop, edges wire up, a pulse fires through
       tl.to(".neuron", { scale: 1, duration: 0.2, stagger: 0.02, ease: "back.out(2)" }, 2.0);
       tl.to(".edge", { strokeDashoffset: 0, duration: 0.45, stagger: 0.008 }, 2.15);
       tl.to(".edge", { stroke: ACCENT, duration: 0.12, stagger: { each: 0.006, from: "start" } }, 2.6)
@@ -95,7 +95,7 @@ export default function PipelineStage() {
       tl.to(".label-model", { opacity: 1, y: 0, duration: 0.1 }, 2.3);
       caption(2, 2);
 
-      // 04 · Serve — one clean line leaves, carrying a signal
+      // 04 · Serve - one clean line leaves, carrying a signal
       tl.to(".exit", { strokeDashoffset: 0, duration: 0.5 }, 3.05);
       tl.to(".pulse", { opacity: 1, duration: 0.05 }, 3.1)
         .to(".pulse", { attr: { cx: EXIT.x1 }, duration: 0.5 }, 3.1)

@@ -8,12 +8,12 @@ import { getLenis } from "@/lib/lenis";
 import { useReveal } from "./useReveal";
 
 /**
- * Personal / open-source projects. Each card has a screenshot slot —
+ * Personal / open-source projects. Each card has a screenshot slot -
  * drop an image into `public/projects/` and set `image` on the entry in
  * `src/content/mock.ts`. Missing images get a generated placeholder.
  *
  * The screenshot opens a lightbox; the title goes to the project itself
- * (its first link — the repo, or the article).
+ * (its first link - the repo, or the article).
  */
 export default function Projects() {
   const ref = useRef<HTMLElement>(null);
@@ -26,19 +26,13 @@ export default function Projects() {
       ref={ref}
       className="relative mx-auto max-w-[1600px] px-6 py-32 md:px-10 md:py-44"
     >
-      <div className="mb-16 grid gap-6 md:mb-24 md:grid-cols-12 md:items-end">
-        <h2 className="display reveal text-[clamp(2.4rem,6vw,5.5rem)] md:col-span-7">
-          Things I build
-          <br />
-          on my own time
-        </h2>
-        <p className="reveal text-muted md:col-span-4 md:col-start-9 md:pb-3">
-          Side projects, open source and writing. Screenshots, repos and the
-          occasional article.
-        </p>
-      </div>
+      <h2 className="display reveal mb-16 text-[clamp(2.4rem,6vw,5.5rem)] md:mb-24">
+        Things I build
+        <br />
+        on my own time
+      </h2>
 
-      <ul className="grid gap-x-8 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+      <ul className="grid gap-x-8 gap-y-16 md:grid-cols-2">
         {sideProjects.map((p, i) => (
           <li key={p.id} className="reveal group">
             <Shot project={p} index={i} onZoom={() => setZoomed(p)} />
@@ -79,7 +73,7 @@ export default function Projects() {
   );
 }
 
-/** Links the card heading to the project — its repo, or the article. */
+/** Links the card heading to the project - its repo, or the article. */
 function Title({ project }: { project: SideProject }) {
   const primary = project.links[0];
   if (!primary) return <>{project.title}</>;
@@ -89,7 +83,7 @@ function Title({ project }: { project: SideProject }) {
       href={primary.href}
       target="_blank"
       rel="noreferrer"
-      className="underline decoration-transparent decoration-1 underline-offset-[6px] transition-colors duration-300 hover:text-accent hover:decoration-accent"
+      className="underline decoration-muted decoration-1 underline-offset-[6px] transition-colors duration-300 hover:text-accent hover:decoration-accent"
     >
       {project.title}
     </a>
@@ -127,14 +121,14 @@ function Shot({
         src={project.image}
         alt={`${project.title} screenshot`}
         fill
-        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
+        sizes="(min-width: 768px) 50vw, 100vw"
         className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
       />
       <span
         aria-hidden
-        className="pointer-events-none absolute inset-0 flex items-end justify-end p-4 opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+        className="pointer-events-none absolute inset-0 flex items-end justify-end p-4"
       >
-        <span className="rounded-full border border-line bg-bg/70 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] backdrop-blur-sm">
+        <span className="rounded-full border border-line bg-bg/80 px-3 py-1 font-mono text-[0.7rem] uppercase tracking-[0.14em] backdrop-blur-sm transition-colors duration-300 group-hover:border-accent group-hover:text-accent">
           Enlarge ⤢
         </span>
       </span>
@@ -225,9 +219,6 @@ function Lightbox({
               {primary.label.toUpperCase()} ↗
             </a>
           )}
-          <span className="font-mono text-xs tracking-widest text-muted/70">
-            ESC TO CLOSE
-          </span>
         </figcaption>
       </figure>
     </div>,

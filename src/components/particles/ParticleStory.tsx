@@ -10,7 +10,7 @@ import { particleState } from "./state";
 const ParticleScene = dynamic(() => import("./ParticleScene"), { ssr: false });
 
 /**
- * Concept 02 — the fixed particle canvas plus the scroll sections that drive
+ * Concept 02 - the fixed particle canvas plus the scroll sections that drive
  * which shape the particles are forming.
  */
 export default function ParticleStory() {
@@ -57,16 +57,10 @@ export default function ParticleStory() {
         className="relative z-10 flex h-[100svh] flex-col justify-end px-6 pb-16 md:px-10 md:pb-20"
       >
         <h1 className="sr-only">{profile.name}</h1>
-        <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
-          <div>
-            <p className="hero-meta eyebrow mb-4">{profile.roleLong}</p>
-            <p className="hero-meta max-w-md text-lg leading-relaxed text-muted md:text-xl">
-              {profile.tagline}
-            </p>
-          </div>
-          <p className="hero-meta eyebrow flex items-center gap-3">
-            <span className="inline-block h-6 w-px animate-pulse bg-fg" />
-            Scroll — signal from noise
+        <div>
+          <p className="hero-meta eyebrow mb-4">{profile.roleLong}</p>
+          <p className="hero-meta max-w-md text-lg leading-relaxed text-muted md:text-xl">
+            {profile.tagline}
           </p>
         </div>
       </section>

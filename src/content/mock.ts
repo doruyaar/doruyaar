@@ -11,10 +11,9 @@ export const profile = {
   firstName: "Dor",
   role: "Data & AI Engineer",
   roleLong: "Data Engineer · AI Engineer",
-  tagline: "From raw events to AI agents — built end to end.",
+  tagline: "From raw events to AI agents - built end to end.",
   intro:
-    "Data and AI Engineer with a strong backend, data engineering and cloud infrastructure background. I've worked the whole product lifecycle — frontend, REST APIs, large-scale Spark pipelines, cloud infrastructure, AI agents, RAG and context engineering — and I like taking a proof-of-concept all the way to a product people actually use.",
-  location: "Israel",
+    "Data and AI Engineer with a strong backend, data engineering and cloud infrastructure background. I've worked the whole product lifecycle - frontend, REST APIs, large-scale Spark pipelines, cloud infrastructure, AI agents, RAG and context engineering - and I like taking a proof-of-concept all the way to a product people actually use.",
   email: "doru.yaar@gmail.com",
   socials: [
     { label: "LinkedIn", href: "https://www.linkedin.com/in/dor-yardeni-b43066331/" },
@@ -58,7 +57,7 @@ export const stages: Stage[] = [
     index: "03",
     title: "Then it learns.",
     body:
-      "An AI agent that works like an analyst: it understands company-specific domain data and runs real analysis workflows — about 1000× faster than a human analyst, at 1/100 of the cost.",
+      "An AI agent that works like an analyst: it understands company-specific domain data and runs real analysis workflows - about 1000× faster than a human analyst, at 1/100 of the cost.",
     tags: ["LLMs", "AI Agents", "RAG", "LangGraph", "MLflow"],
   },
   {
@@ -66,7 +65,7 @@ export const stages: Stage[] = [
     index: "04",
     title: "Shipped. Owned. End to end.",
     body:
-      "Frontend, backend, security and evaluation — from concept to a product used internally and pitched to customers, making our offers far more competitive. I own the direction, the code and the conversation.",
+      "Frontend, backend, security and evaluation - from concept to a product used internally and pitched to customers, making our offers far more competitive. I own the direction, the code and the conversation.",
     tags: ["TypeScript", "Node.js", "React", "Vue", "AWS Lambda", "Azure Functions"],
   },
 ];
@@ -88,9 +87,9 @@ export const experience: Experience[] = [
     id: "cymotive-ai",
     role: "AI Engineer",
     company: "CYMOTIVE Technologies",
-    period: "2025 – 2026",
+    period: "2025 - 2026",
     summary:
-      "Initiated and independently built a new AI product from concept to proof-of-concept: an AI agent that works as an analyst over company-specific domain data — about 1000× faster than a human analyst at roughly 1/100 of the cost.",
+      "Initiated and independently built a new AI product from concept to proof-of-concept: an AI agent that works as an analyst over company-specific domain data - about 1000× faster than a human analyst at roughly 1/100 of the cost.",
     highlight: "1000× faster · 1/100 the cost",
     bullets: [
       "Designed and implemented an AI agent that understands domain data and runs real analysis workflows end to end.",
@@ -104,9 +103,9 @@ export const experience: Experience[] = [
     id: "cymotive-data",
     role: "Data Engineer",
     company: "CYMOTIVE Technologies",
-    period: "2023 – 2025",
+    period: "2023 - 2025",
     summary:
-      "Built a live streaming, end-to-end ETL pipeline that consumes 10,000 events per second at peak — hundreds of terabytes every month — on Spark and Databricks, and led a full system migration from Elasticsearch into Databricks.",
+      "Built a live streaming, end-to-end ETL pipeline that consumes 10,000 events per second at peak - hundreds of terabytes every month - on Spark and Databricks, and led a full system migration from Elasticsearch into Databricks.",
     highlight: "10k events/s · 100s of TB/month",
     bullets: [
       "Built live ETL and streaming pipelines with Databricks, Spark Structured Streaming, Delta Lake and Kafka.",
@@ -120,7 +119,7 @@ export const experience: Experience[] = [
     id: "cymotive-fullstack",
     role: "Full Stack Engineer",
     company: "CYMOTIVE Technologies",
-    period: "2022 – 2023",
+    period: "2022 - 2023",
     summary:
       "Developed backend services, REST APIs and data-driven applications in TypeScript and Node.js, with Vue and React frontends and serverless functions on AWS and Azure.",
     highlight: "End-to-end features",
@@ -160,7 +159,7 @@ export const sideProjects: SideProject[] = [
     id: "jagura",
     title: "Jagura",
     description:
-      "An SQL interface for managing containers. Jagura behaves like any SQL database, plus a CONTAINER data type: start, stop, restart, pause or kill containers, read their metadata and run commands inside them — all from ordinary SELECT statements.",
+      "An SQL interface for managing containers. Jagura behaves like any SQL database, plus a CONTAINER data type: start, stop, restart, pause or kill containers, read their metadata and run commands inside them - all from ordinary SELECT statements.",
     image: "/projects/jagura.png",
     links: [{ label: "GitHub", href: "https://github.com/doruyaar/Jagura" }],
     tags: ["Docker", "SQL", "Node.js", "TypeScript"],
@@ -170,7 +169,7 @@ export const sideProjects: SideProject[] = [
     id: "openinsight",
     title: "OpenInsight",
     description:
-      "An AI-based competitive intelligence platform. It tracks competitors, turns their product, pricing and security changes into insights, compares them side by side and ranks everything by impact automatically — with every claim traced back to its source.",
+      "An AI-based competitive intelligence platform. It tracks competitors, turns their product, pricing and security changes into insights, compares them side by side and ranks everything by impact automatically - with every claim traced back to its source.",
     image: "/projects/openinsight.png",
     links: [{ label: "GitHub", href: "https://github.com/doruyaar/OpenInsight" }],
     tags: ["AI Agents", "LLMs", "RAG", "Context Engineering", "Prompt Engineering"],
@@ -180,7 +179,7 @@ export const sideProjects: SideProject[] = [
     id: "book-agent-skills",
     title: "Agent Skills from Books",
     description:
-      "One agent skill per engineering book I've read — each distilling the book's rules and methodology into a single SKILL.md, so I can call a book into my agent while developing. Covers AI engineering and RAG, data-intensive systems, refactoring, pragmatic engineering and UX. Works in Cursor, Claude Code and anything else that speaks the open Agent Skills format.",
+      "One agent skill per engineering book I've read - each distilling the book's rules and methodology into a single SKILL.md, so I can call a book into my agent while developing. Covers AI engineering and RAG, data-intensive systems, refactoring, pragmatic engineering and UX. Works in Cursor, Claude Code and anything else that speaks the open Agent Skills format.",
     image: "/projects/agent-skills-books.jpg",
     links: [
       {
@@ -195,7 +194,7 @@ export const sideProjects: SideProject[] = [
     id: "spark-python-article",
     title: "Should We Stop Using Python for Spark Jobs?",
     description:
-      "An article I wrote after benchmarking PySpark against Scala: identical performance on the native DataFrame and SQL APIs, but up to 10× faster in Scala once heavy UDFs enter the picture — and the rewrite that finally stopped a streaming job from running its driver out of memory.",
+      "An article I wrote after benchmarking PySpark against Scala: identical performance on the native DataFrame and SQL APIs, but up to 10× faster in Scala once heavy UDFs enter the picture - and the rewrite that finally stopped a streaming job from running its driver out of memory.",
     image: "/projects/spark-python-article.jpg",
     links: [
       {
@@ -235,7 +234,7 @@ export const skillGroups: SkillGroup[] = [
 export const skills = Array.from(new Set(skillGroups.flatMap((g) => g.items)));
 
 export const stats = [
-  { value: "1000×", label: "faster than a human analyst — my AI agent" },
+  { value: "1000×", label: "faster than a human analyst - my AI agent" },
   { value: "1/100", label: "of the cost of a human analyst" },
   { value: "10k/s", label: "events ingested at peak, live streaming ETL" },
   { value: "100s TB", label: "processed every month" },
