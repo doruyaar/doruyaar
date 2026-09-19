@@ -31,6 +31,8 @@ export type SceneState = {
   shape: number; // 0..6, smoothed
   opacity: number; // 0..1
   velocity: number; // 0..1
+  /** Where the coda wave sits, in units of H; 0 until it has been measured. */
+  codaCy: number;
 };
 
 const TAU = Math.PI * 2;
@@ -118,7 +120,10 @@ const waves: ((u: number, t: number) => number)[] = [
   (u, t) => 0.055 * Math.sin(TAU * (u * 1.5 - t * 0.2)),
 ];
 
-/** Vertical centre of the wave per stage, in units of H. */
+/**
+ * Vertical centre of the wave per stage, in units of H. The last one is only a
+ * fallback: the coda is positioned from the contact copy (see `codaCy`).
+ */
 const WAVE_CY = [0.17, 0.5, 0.76, 0.76, 0.86, 0.5, 0.72];
 /** How strongly the wave is faded out on the left (behind the copy). */
 const LEFT_FADE = [0, 1, 1, 1, 1, 0, 0];
@@ -392,7 +397,14 @@ export function drawScene(
   const mobile = W < 768;
 
   const mixArr = (arr: number[]) => lerp(arr[i], arr[i + 1], tt);
-  const cy = mixArr(WAVE_CY) * H;
+  // The coda wave rides in the gap under the mail address (measured in
+  // MusicStory) rather than at a fixed height, so it can never run through the
+  // copy: while that gap is below the fold the wave is too, and it rises into
+  // view with it. It also settles early in the morph, so the wave is never
+  // left hanging mid-screen while the headline is still travelling.
+  const codaCy = s.codaCy > 0 ? s.codaCy : WAVE_CY[6];
+  const coda = i === 5;
+  const cy = lerp(WAVE_CY[i], coda ? codaCy : WAVE_CY[i + 1], coda ? smooth(tt / 0.3) : tt) * H;
   const leftFade = mobile ? 0 : mixArr(LEFT_FADE);
   const burst = Math.sin(tt * Math.PI);
   const perf = weight(shape, 4); // “we are at the score”

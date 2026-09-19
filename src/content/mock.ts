@@ -9,8 +9,8 @@
 export const profile = {
   name: "Dor Yardeni",
   firstName: "Dor",
-  role: "Data & AI Engineer",
-  roleLong: "Data Engineer · AI Engineer",
+  role: "Data & AI Engineer · Builder",
+  roleLong: "Data Engineer · AI Engineer · Builder",
   tagline: "From raw events to AI agents - built end to end.",
   intro:
     "Data and AI Engineer with a strong backend, data engineering and cloud infrastructure background. I've worked the whole product lifecycle - frontend, REST APIs, large-scale Spark pipelines, cloud infrastructure, AI agents, RAG and context engineering - and I like taking a proof-of-concept all the way to a product people actually use.",
@@ -41,7 +41,7 @@ export const stages: Stage[] = [
     index: "01",
     title: "Raw. Messy. Everywhere.",
     body:
-      "Large-scale event data landing from Kafka, Event Hubs, S3 and half a dozen databases. Nobody trusts it yet. This is where I start.",
+      "Large-scale event data landing from Kafka, Event Hubs, S3 and half a dozen databases. Nobody trusts it yet, and nobody owns it. I start here, usually with the analysts and product people who need something out of it.",
     tags: ["Kafka", "Event Hubs", "S3", "PostgreSQL", "Elasticsearch"],
   },
   {
@@ -49,7 +49,7 @@ export const stages: Stage[] = [
     index: "02",
     title: "Structure out of noise.",
     body:
-      "A live streaming ETL pipeline on Spark and Databricks: 10,000 events a second at peak, hundreds of terabytes a month, Delta Lake underneath, Terraform and CI/CD keeping it honest.",
+      "A live streaming ETL pipeline on Spark and Databricks: 10,000 events a second at peak, hundreds of terabytes a month, Delta Lake underneath, Terraform and CI/CD keeping it honest. I built it, and I'm who the team asks when something in it breaks.",
     tags: ["Databricks", "Apache Spark", "Delta Lake", "Structured Streaming", "Terraform"],
   },
   {
@@ -57,7 +57,7 @@ export const stages: Stage[] = [
     index: "03",
     title: "Then it learns.",
     body:
-      "An AI agent that works like an analyst: it understands company-specific domain data and runs real analysis workflows - about 1000× faster than a human analyst, at 1/100 of the cost.",
+      "An AI agent that works like an analyst: it understands company-specific domain data and runs real analysis workflows - about 1000× faster than a human analyst, at 1/100 of the cost. It wasn't on anyone's roadmap. I scoped it, built it, and pitched it until it was.",
     tags: ["LLMs", "AI Agents", "RAG", "LangGraph", "MLflow"],
   },
   {
@@ -65,7 +65,7 @@ export const stages: Stage[] = [
     index: "04",
     title: "Shipped. Owned. End to end.",
     body:
-      "Frontend, backend, security and evaluation - from concept to a product used internally and pitched to customers, making our offers far more competitive. I own the direction, the code and the conversation.",
+      "Frontend, backend, security and evaluation - from concept to a product used internally and pitched to customers. I wrote the code and ran the conversations with product, sales and security that turned it into an offer we win with.",
     tags: ["TypeScript", "Node.js", "React", "Vue", "AWS Lambda", "Azure Functions"],
   },
 ];
@@ -210,7 +210,7 @@ export const sideProjects: SideProject[] = [
 
 export type SkillGroup = { label: string; items: string[] };
 
-/** Technical skills grouped as on the CV. */
+/** Technical skills grouped as on the CV, plus the soft skills the work needs. */
 export const skillGroups: SkillGroup[] = [
   { label: "Languages", items: ["TypeScript", "Python", "SQL", "JavaScript", "Scala"] },
   {
@@ -228,6 +228,16 @@ export const skillGroups: SkillGroup[] = [
   },
   { label: "Infra & DevOps", items: ["Terraform", "GitHub Actions", "Docker", "CI/CD"] },
   { label: "Databases", items: ["Databricks", "PostgreSQL", "Elasticsearch", "SQL optimization", "Schema design"] },
+  {
+    label: "Soft Skills",
+    items: [
+      "Product ownership",
+      "Cross-team communication",
+      "Pitching & demos",
+      "Mentoring",
+      "Technical writing",
+    ],
+  },
 ];
 
 /** Flat list, for concepts that want a simple marquee/cloud. */

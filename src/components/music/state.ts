@@ -7,6 +7,12 @@ export const musicState = {
   shape: 0,
   opacity: 1,
   velocity: 0,
+  /**
+   * Where the coda wave sits, in units of viewport height; 0 until measured.
+   * `MusicStory` parks it in the gap between the contact CTA and the footer,
+   * so the wave passes under the mail address instead of through it.
+   */
+  codaCy: 0,
 };
 
 export const MUSIC_SHAPES = 7;

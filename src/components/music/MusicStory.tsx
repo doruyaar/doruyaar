@@ -21,6 +21,8 @@ type Props = {
  */
 export default function MusicStory({ musicFont }: Props) {
   const ref = useRef<HTMLDivElement>(null);
+  /** The band the coda wave runs through. Resolved on the first contact scroll. */
+  const codaGap = useRef<{ cta: HTMLElement; footer: HTMLElement } | null>(null);
 
   useGSAP(
     () => {
@@ -63,6 +65,22 @@ export default function MusicStory({ musicFont }: Props) {
       musicState.shape = p.reduce((a, b) => a + b, 0);
       musicState.opacity = 1 - 0.6 * pWork + 0.5 * pContact;
       musicState.velocity = velocity;
+
+      // Centre the coda wave in the gap between the mail address and the
+      // footer, wherever the scroll has left them.
+      if (pContact > 0) {
+        if (!codaGap.current) {
+          const cta = document.querySelector<HTMLElement>("#contact [data-contact-cta]");
+          const footer = document.querySelector<HTMLElement>("#contact footer");
+          if (cta && footer) codaGap.current = { cta, footer };
+        }
+        const gap = codaGap.current;
+        if (gap) {
+          const top = gap.cta.getBoundingClientRect().bottom;
+          const bottom = gap.footer.getBoundingClientRect().top;
+          musicState.codaCy = (top + bottom) / 2 / window.innerHeight;
+        }
+      }
     },
   });
 
