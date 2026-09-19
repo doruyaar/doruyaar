@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "@/components/shared/SmoothScroll";
-import ConceptSwitch from "@/components/shared/ConceptSwitch";
 import { profile } from "@/content/mock";
 
 const geistSans = Geist({
@@ -29,7 +28,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       <body className="min-h-full flex flex-col">
         <SmoothScroll />
         {children}
-        <ConceptSwitch />
       </body>
     </html>
   );
