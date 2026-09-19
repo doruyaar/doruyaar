@@ -31,11 +31,17 @@ export default function About() {
         </div>
       </div>
 
-      <dl className="mt-24 grid grid-cols-2 gap-y-12 border-t border-line pt-10 md:grid-cols-4">
-        {stats.map((s) => (
-          <div key={s.label} className="reveal">
+      <dl className="mt-24 grid grid-cols-2 gap-x-8 gap-y-12 border-t border-line pt-10 md:grid-cols-4 md:gap-x-12">
+        {stats.map((s, i) => (
+          <div
+            key={s.label}
+            className={`reveal ${i > 0 ? "md:border-l md:border-line md:pl-12" : ""}`}
+          >
             <dd className="display text-[clamp(2rem,4vw,3.6rem)]">{s.value}</dd>
-            <dt className="eyebrow mt-3">{s.label}</dt>
+            <dt className="eyebrow mt-3 leading-relaxed">
+              {s.label}
+              <span className="mt-2 block text-[0.62rem] text-muted/60">{s.source}</span>
+            </dt>
           </div>
         ))}
       </dl>

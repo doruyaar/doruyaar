@@ -244,8 +244,8 @@ export const skillGroups: SkillGroup[] = [
 export const skills = Array.from(new Set(skillGroups.flatMap((g) => g.items)));
 
 export const stats = [
-  { value: "1000×", label: "faster than a human analyst - my AI agent" },
-  { value: "1/100", label: "of the cost of a human analyst" },
-  { value: "10k/s", label: "events ingested at peak, live streaming ETL" },
-  { value: "100s TB", label: "processed every month" },
+  { value: "1000×", label: "faster than a human analyst", source: "AI agent" },
+  { value: "1/100", label: "the cost of a human analyst", source: "AI agent" },
+  { value: "10k/s", label: "events ingested at peak", source: "streaming ETL" },
+  { value: "100s TB", label: "of data processed monthly", source: "streaming ETL" },
 ];
