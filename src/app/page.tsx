@@ -1,4 +1,4 @@
-import PipelinePage from "./pipeline/page";
+import ParticlesPage from "./particles/page";
 
 /**
  * Temporary: land on concept 01 until a concept is chosen.
@@ -6,4 +6,4 @@ import PipelinePage from "./pipeline/page";
  * a static export can only perform `redirect()` client-side, which leaves
  * `/` blank for crawlers and link previews.
  */
-export default PipelinePage;
+export default ParticlesPage;

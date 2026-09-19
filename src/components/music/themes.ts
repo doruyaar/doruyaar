@@ -4,8 +4,7 @@ import type { Palette } from "./scene";
 export type CanvasColors = Omit<Palette, "musicFont">;
 
 /**
- * Concept 03 is the score on paper: it reuses the /pipeline palette
- * verbatim, so the two concepts read as one system.
+ * Concept 02 is the score on paper: warm off-white stock, near-black ink.
  *
  * The waveform is a desaturated steel blue that sits visually *behind*
  * the copy instead of competing with it.

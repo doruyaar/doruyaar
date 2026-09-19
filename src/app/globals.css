@@ -3,8 +3,8 @@
 
 /*
   Each concept sets its own palette by overriding these variables on its
-  root element (see /pipeline, /particles and /music). Shared components
-  only ever reference the semantic tokens below.
+  root element (see /particles and /music). Shared components only ever
+  reference the semantic tokens below.
 */
 :root {
   --bg: #0b0b0d;
@@ -63,15 +63,6 @@ body {
 .rule {
   height: 1px;
   background: var(--line);
-}
-
-/* Subtle grid texture used by the light theme */
-.grid-paper {
-  background-image:
-    linear-gradient(var(--line) 1px, transparent 1px),
-    linear-gradient(90deg, var(--line) 1px, transparent 1px);
-  background-size: 96px 96px;
-  mask-image: radial-gradient(ellipse at center, black 30%, transparent 85%);
 }
 
 /* Reveal helpers driven by GSAP (initial state) */

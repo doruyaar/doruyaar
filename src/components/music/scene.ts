@@ -1,5 +1,5 @@
 /**
- * Pure drawing code for Concept 03 - “Noise → Music”.
+ * Pure drawing code for Concept 02 - “Noise → Music”.
  *
  * One waveform runs across the screen. Scroll morphs it from a calm hero
  * line, into raw noise, into a quantised step sequence (rhythm), into

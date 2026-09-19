@@ -10,7 +10,7 @@ import { particleState } from "./state";
 const ParticleScene = dynamic(() => import("./ParticleScene"), { ssr: false });
 
 /**
- * Concept 02 - the fixed particle canvas plus the scroll sections that drive
+ * Concept 01 - the fixed particle canvas plus the scroll sections that drive
  * which shape the particles are forming.
  */
 export default function ParticleStory() {

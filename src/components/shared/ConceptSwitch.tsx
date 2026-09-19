@@ -8,15 +8,14 @@ import { usePathname } from "next/navigation";
  * Delete this component (and the losing route) once a concept is chosen.
  */
 const concepts = [
-  { href: "/pipeline", label: "Pipeline", hint: "01" },
-  { href: "/particles", label: "Particles", hint: "02" },
-  { href: "/music", label: "Music", hint: "03" },
+  { href: "/particles", label: "Particles", hint: "01" },
+  { href: "/music", label: "Music", hint: "02" },
 ] as const;
 
 export default function ConceptSwitch() {
   const pathname = usePathname();
-  // `/` renders concept 01, so it should light up the same tab as `/pipeline`.
-  const current = pathname === "/" ? "/pipeline" : pathname;
+  // `/` renders concept 01, so it should light up the same tab as `/particles`.
+  const current = pathname === "/" ? "/particles" : pathname;
 
   return (
     <div className="pointer-events-none fixed inset-x-0 bottom-5 z-50 flex justify-center px-4">

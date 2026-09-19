@@ -13,7 +13,7 @@ type Props = {
 };
 
 /**
- * Owns the Concept 03 palette. The variables are set here and inherited by
+ * Owns the Concept 02 palette. The variables are set here and inherited by
  * everything on the page; the canvas gets its ink handed to it directly.
  */
 export default function MusicShell({ fontClass, musicFont, children }: Props) {

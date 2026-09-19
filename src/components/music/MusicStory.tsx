@@ -16,7 +16,7 @@ type Props = {
 };
 
 /**
- * Concept 03 - “Noise → Music”.
+ * Concept 02 - “Noise → Music”.
  * A single waveform is tuned from static into a melody as you scroll.
  */
 export default function MusicStory({ musicFont }: Props) {

@@ -6,10 +6,10 @@ import About from "@/components/shared/About";
 import Contact from "@/components/shared/Contact";
 import ParticleStory from "@/components/particles/ParticleStory";
 
-export const metadata: Metadata = { title: "Concept 02 · Particles" };
+export const metadata: Metadata = { title: "Concept 01 · Particles" };
 
 /**
- * Concept 02 - “Particles → Structure”.
+ * Concept 01 - “Particles → Structure”.
  * Dark, monochrome. One particle system forms the name, dissolves into
  * noise, then snaps into storage, a network, a 3D graph - and finally you.
  */
