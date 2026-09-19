@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64">
+  <!-- DY monogram: dark tile, mint accent, matching the site palette -->
+  <defs>
+    <radialGradient id="glow" cx="0.78" cy="0.82" r="0.7">
+      <stop offset="0" stop-color="#7df3c8" stop-opacity="0.28"/>
+      <stop offset="1" stop-color="#7df3c8" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect width="64" height="64" rx="15" fill="#0a0a0c"/>
+  <rect width="64" height="64" rx="15" fill="url(#glow)"/>
+  <rect x="0.5" y="0.5" width="63" height="63" rx="14.5" fill="none" stroke="#ffffff" stroke-opacity="0.12"/>
+  <g fill="none" stroke-width="6.5" stroke-linecap="round" stroke-linejoin="round">
+    <!-- D -->
+    <path d="M13.5 19V45M13.5 19H20.5A10 13 0 0 1 20.5 45H13.5" stroke="#f4f4f2"/>
+    <!-- Y -->
+    <path d="M34.5 19L42.5 33L50.5 19M42.5 33V45" stroke="#7df3c8"/>
+  </g>
+</svg>
