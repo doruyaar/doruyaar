@@ -1,0 +1,17 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "personal-website",
+  "compatibility_date": "2026-09-19",
+  // There is no Worker script: `next build` emits a static export into `out/`,
+  // which Cloudflare serves as assets. Without this file `wrangler deploy`
+  // auto-detects Next.js, assumes a server build, and runs the OpenNext
+  // adapter, which fails because `output: "export"` never emits `.next/standalone`.
+  "assets": {
+    "directory": "./out",
+    // Serve the exported `out/404.html` for unmatched paths.
+    "not_found_handling": "404-page"
+  },
+  "observability": {
+    "enabled": true
+  }
+}
