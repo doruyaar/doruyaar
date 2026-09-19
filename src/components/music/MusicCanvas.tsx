@@ -53,7 +53,9 @@ export default function MusicCanvas({ musicFont }: Props) {
         .catch(() => {});
     }
 
-    const smoothed = { shape: musicState.shape, opacity: 1, velocity: 0 };
+    // `codaCy` is geometry, not a mood: it is copied straight through so the
+    // wave sticks to the contact copy instead of trailing it while scrolling.
+    const smoothed = { shape: musicState.shape, opacity: 1, velocity: 0, codaCy: 0 };
     const pal: Palette = { ...THEME.canvas, musicFont };
     let raf = 0;
     let last = performance.now();
@@ -67,6 +69,7 @@ export default function MusicCanvas({ musicFont }: Props) {
       smoothed.opacity += (musicState.opacity - smoothed.opacity) * k;
       musicState.velocity += (0 - musicState.velocity) * Math.min(1, dt * 3);
       smoothed.velocity = musicState.velocity;
+      smoothed.codaCy = musicState.codaCy;
 
       ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
       drawScene(ctx, W, H, (now - start) / 1000, smoothed, pal, dpr);
