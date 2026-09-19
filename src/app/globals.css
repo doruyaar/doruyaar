@@ -15,6 +15,9 @@
   --accent-ink: #061a13;
 }
 
+/* Landscape phones: wide but only a few hundred pixels tall. */
+@custom-variant short (@media (max-height: 520px) and (orientation: landscape));
+
 @theme inline {
   --color-bg: var(--bg);
   --color-fg: var(--fg);

@@ -1,7 +1,7 @@
 "use client";
 
 import { useMemo, useRef } from "react";
-import { Canvas, useFrame, useThree } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import * as THREE from "three";
 import { profile } from "@/content/mock";
 import {
@@ -115,10 +115,14 @@ const fragment = /* glsl */ `
 
 type Palette = { color: string; accent: string };
 
+/** Nominal extent (world units, unscaled) of the story shapes, for fitting.
+ *  Wide enough to include the chaos cloud's tails. */
+const SHAPE_W = 12;
+const SHAPE_H = 7;
+
 function Particles({ color, accent }: Palette) {
   const mat = useRef<THREE.ShaderMaterial>(null);
   const group = useRef<THREE.Group>(null);
-  const { viewport } = useThree();
 
   const geometry = useMemo(() => {
     const g = new THREE.BufferGeometry();
@@ -177,15 +181,47 @@ function Particles({ color, accent }: Palette) {
     m.uniforms.uVelocity.value = particleState.velocity;
 
     if (group.current) {
-      const mobile = viewport.aspect < 1;
-      const targetX = mobile ? 0 : particleState.offsetX;
-      const targetS = mobile ? 0.62 : Math.min(1, viewport.aspect / 1.6);
-      group.current.position.x = THREE.MathUtils.lerp(group.current.position.x, targetX, Math.min(1, dt * 2.5));
-      const s = THREE.MathUtils.lerp(group.current.scale.x, targetS, Math.min(1, dt * 2.5));
-      group.current.scale.setScalar(s);
+      // `viewport` is the visible area in world units at z = 0 (camera is
+      // fixed, so height is constant and width follows the aspect ratio).
+      const { viewport } = state;
+      let targetX = particleState.offsetX;
+      let targetY = 0;
+      let targetS = Math.min(1, viewport.aspect / 1.6);
+      if (viewport.aspect >= 1) {
+        // Landscape: while pinned beside the copy, stay right of the copy
+        // column and inside the screen - shrink if both cannot hold.
+        const { textRight, beside } = particleState.landscape;
+        if (beside > 0) {
+          const left = (textRight - 0.5) * viewport.width + 0.4;
+          const right = viewport.width / 2 - 0.3;
+          const sFit = Math.min(targetS, (right - left) / SHAPE_W, (viewport.height * 0.9) / SHAPE_H);
+          const half = (SHAPE_W / 2) * sFit;
+          const xFit = Math.min(Math.max(targetX, left + half), right - half);
+          targetS = THREE.MathUtils.lerp(targetS, sFit, beside);
+          targetX = THREE.MathUtils.lerp(targetX, xFit, beside);
+        }
+      } else {
+        // Portrait: centred, lifted above the copy, and fitted into the box
+        // the story measured so no shape ever reaches the text.
+        const p = particleState.portrait;
+        targetX = 0;
+        targetY = (0.5 - p.centerY) * viewport.height;
+        const fit = Math.min(
+          (p.boxW * viewport.width) / p.shapeW,
+          (p.boxH * viewport.height) / p.shapeH,
+        );
+        // Backdrop (work sections): full size, same as landscape, so the
+        // ambient field covers the screen instead of a band in the middle.
+        targetS = THREE.MathUtils.lerp(fit, 1, p.cover);
+      }
+      const g = group.current;
+      const k2 = Math.min(1, dt * 2.5);
+      g.position.x = THREE.MathUtils.lerp(g.position.x, targetX, k2);
+      g.position.y = THREE.MathUtils.lerp(g.position.y, targetY, k2);
+      g.scale.setScalar(THREE.MathUtils.lerp(g.scale.x, targetS, k2));
       // Slow parallax tilt with the mouse.
-      group.current.rotation.y = THREE.MathUtils.lerp(group.current.rotation.y, state.pointer.x * 0.12, dt * 2);
-      group.current.rotation.x = THREE.MathUtils.lerp(group.current.rotation.x, -state.pointer.y * 0.08, dt * 2);
+      g.rotation.y = THREE.MathUtils.lerp(g.rotation.y, state.pointer.x * 0.12, dt * 2);
+      g.rotation.x = THREE.MathUtils.lerp(g.rotation.x, -state.pointer.y * 0.08, dt * 2);
     }
   });
 

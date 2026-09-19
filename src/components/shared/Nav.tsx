@@ -37,11 +37,18 @@ export default function Nav() {
             </a>
           </li>
         </ul>
+        {/* The full address needs room; on phones point at the contact section instead. */}
         <a
           href={`mailto:${profile.email}`}
-          className="font-mono text-xs tracking-widest opacity-70 transition-opacity hover:opacity-100"
+          className="hidden font-mono text-xs tracking-widest opacity-70 transition-opacity hover:opacity-100 sm:inline"
         >
           {profile.email}
+        </a>
+        <a
+          href="#contact"
+          className="font-mono text-xs tracking-widest opacity-70 transition-opacity hover:opacity-100 sm:hidden"
+        >
+          CONTACT
         </a>
       </nav>
     </header>
