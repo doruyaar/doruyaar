@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import Image from "next/image";
 import { sideProjects, type SideProject } from "@/content/mock";
+import { asset } from "@/lib/asset";
 import { getLenis } from "@/lib/lenis";
 import { useReveal } from "./useReveal";
 
@@ -118,7 +119,7 @@ function Shot({
       className={`${FRAME} block w-full cursor-zoom-in`}
     >
       <Image
-        src={project.image}
+        src={asset(project.image)}
         alt={`${project.title} screenshot`}
         fill
         sizes="(min-width: 768px) 50vw, 100vw"
@@ -199,7 +200,7 @@ function Lightbox({
       >
         <div className="relative h-[70vh] w-[92vw] max-w-[1400px] md:h-[76vh]">
           <Image
-            src={project.image!}
+            src={asset(project.image!)}
             alt={`${project.title} screenshot`}
             fill
             sizes="92vw"
